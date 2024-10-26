@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reservation - Classic Cuts Barbershop</title>
+    <link rel="stylesheet" href="reservation_style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="images/logo.png" alt="Barbershop Logo" class="logo" />
+      <h1>Classic Cuts Barbershop</h1>
+      <nav class="header-nav">
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="reservation.html" class="active">Reservation</a></li>
+          <li><a href="#login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="reservation">
+        <h2>Make a Reservation</h2>
+        <form id="reservation-form" onsubmit="submitReservation(event)">
+          <label for="name">Full Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="phone">Phone Number:</label>
+          <input type="tel" id="phone" name="phone" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="date">Preferred Date:</label>
+          <input type="date" id="date" name="date" required />
+
+          <label for="time">Preferred Time:</label>
+          <input type="time" id="time" name="time" required />
+
+          <label for="service">Service:</label>
+          <select id="service" name="service">
+            <option value="haircut">Haircut</option>
+            <option value="beard-trim">Beard Trim</option>
+            <option value="shave">Shave</option>
+          </select>
+
+          <button type="submit">Submit Reservation</button>
+        </form>
+        <!-- Confirmation Message -->
+        <div id="confirmation-message" style="display: none; margin-top: 20px; color: green; font-size: 18px;">
+            Thank you! Your reservation has been successfully made.
+          </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Classic Cuts Barbershop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function submitReservation(event) {
+          event.preventDefault(); // Prevent the default form submission
+  
+          // Display the confirmation message
+          const confirmationMessage = document.getElementById('confirmation-message');
+          confirmationMessage.style.display = 'block';
+  
+          // Optionally reset the form after submission
+          document.getElementById('reservation-form').reset();
+        }
+      </script>
+  </body>
+</html>
